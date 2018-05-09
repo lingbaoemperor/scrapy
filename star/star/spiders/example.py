@@ -33,9 +33,9 @@ class ExampleSpider(scrapy.Spider):
             f.write(response.body)
         dic= json.loads(response.body)
         #人名和图片下载链接
-        item['name'] = [dic['queryExt']]
+        item['image_paths'] = [dic['queryExt']]
         dic = dic['data']
         for addr in dic:
             if 'thumbURL' in addr.keys():
-                item['url'] = [addr['thumbURL']]
+                item['image_urls'] = [addr['thumbURL']]
                 yield item

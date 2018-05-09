@@ -21,8 +21,12 @@ DEFAULT_REQUEST_HEADERS = {
     'user-agent': 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
 }
 
-#ITEM_PIPELINES = {'star.pipelines.MyImagesPipeline':100}
-ITEM_PIPELINES = {'star.pipelines.StarPipeline':100}
+IMAGES_THUMBS = {
+    'small': (50, 50),
+    'big': (270, 270),
+}
+ITEM_PIPELINES = {'star.pipelines.MyImagesPipeline':100}
+#ITEM_PIPELINES = {'star.pipelines.StarPipeline':100}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'star (+http://www.yourdomain.com)'
