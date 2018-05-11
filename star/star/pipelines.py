@@ -19,8 +19,9 @@ class StarPipeline(object):
         path = './img/'+str(item['name'])+'/'
         if os.path.exists(path) == False:
             os.makedirs(path)
-        number = str(len(os.listdir(path)))+'.jpg'
-        with open(path+number,'wb') as f:
+        count = str(len(os.listdir(path)))
+        name = count+'.jpg'
+        with open(path+name,'wb') as f:
             f.write(res.read())
-        print('ok!')
+        print('ok!'+str(item['name'])+':'+count)
         return item

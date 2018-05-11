@@ -13,14 +13,20 @@ class ExampleSpider(scrapy.Spider):
                 tn=resultjson_com&ipn=rj&ct=201326592&\
                 is=&fp=result&queryWord+=&cl=2&lm=-1&\
                 ie=utf-8&oe=utf-8&adpicid=&st=-1&\
-                word=吴京&z=&ic=0&s=&se=&tab=&width=&height=&\
+                z=&ic=0&s=&se=&tab=&width=&height=&\
                 face=0&istype=2&qc=&nc=1&\
                 fr=&\
-                pn=30&\
-                rn=30&gsm=1e'
-        star_name = ['吴京']
-        self.start_urls = [pre + star_name[i] for i in range(len(star_name))]
-#        print(self.start_urls)
+                rn=30&gsm=1e&\
+                word='
+        star_name = ['吴京','阿曼达·塞弗里德']
+        temp_urls = [pre + star_name[i] for i in range(len(star_name))]
+        star_count = len(star_name)
+        #需要多少张，每页30张
+        sheets = 21*30
+        for i in range(star_count):
+            for j in range(30,sheets,30):
+                self.start_urls.append(temp_urls[i]+'&pn=%d' % j)
+        print(self.start_urls)
         
     #需要登陆的网站提交一次登陆信息，还可指定回掉函数，此处用不上
 #    def start_requests(self):
