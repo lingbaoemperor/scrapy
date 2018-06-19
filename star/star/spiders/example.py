@@ -18,13 +18,18 @@ class ExampleSpider(scrapy.Spider):
                 fr=&\
                 rn=30&gsm=1e&\
                 word='
-        star_name = ['吴京','阿曼达·塞弗里德']
+#        star_name = ['吴京','赵文卓','阿曼达·塞弗里德']
+#        star_name = ['猴子','老虎','企鹅','马','金鱼']
+        star_name = ['老鼠','牛','老虎','兔子','龙',
+					'蛇','马','羊','猴子','鸡',
+					'狗','猪']
         temp_urls = [pre + star_name[i] for i in range(len(star_name))]
         star_count = len(star_name)
-        #需要多少张，每页30张
-        sheets = 21*30
+        #每种动物需要多少张，每页30张,这里指定30页
+        sheets = 30
+		#n种动物
         for i in range(star_count):
-            for j in range(30,sheets,30):
+            for j in range(30,sheets*30,30):
                 self.start_urls.append(temp_urls[i]+'&pn=%d' % j)
         print(self.start_urls)
         

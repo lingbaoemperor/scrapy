@@ -16,7 +16,7 @@ class StarPipeline(object):
             print('失败!')
             return
 ##        name = str(item['name'])
-        path = './img/'+str(item['name'])+'/'
+        path = 'G:/workdoc/TS/img_recognition/img/'+str(item['name'])+'/'
         if os.path.exists(path) == False:
             os.makedirs(path)
         count = str(len(os.listdir(path)))
